@@ -118,19 +118,19 @@
 
   .kicker{
     display:inline-flex; align-items:center; gap:8px;
-    font-size:13px; font-weight:700; letter-spacing:.07em; text-transform:uppercase;
-    color: var(--series-1); margin-bottom:14px;
+    font-size:14px; font-weight:700; letter-spacing:.07em; text-transform:uppercase;
+    color: var(--series-1); margin-bottom:12px;
   }
   .kicker .dot{ width:7px; height:7px; border-radius:50%; background: var(--series-1); }
   h1{ font-size: clamp(30px,4.3vw,47px); line-height:1.14; margin:0 0 12px; letter-spacing:-0.01em; }
   h2{ font-size: clamp(22px,2.7vw,29px); margin: 22px 0 10px; }
-  h3{ font-size: 17px; margin: 18px 0 7px; color: var(--text-secondary); font-weight:700;}
-  p{ font-size: clamp(16px,1.6vw,19px); line-height:1.6; color: var(--text-secondary); margin:0 0 12px; max-width: 76ch;}
-  .lede{ font-size: clamp(18px,2vw,22px); color: var(--text-primary); max-width:76ch; }
+  h3{ font-size: 18px; margin: 18px 0 7px; color: var(--text-secondary); font-weight:700;}
+  p{ font-size: clamp(17px,1.7vw,21px); line-height:1.58; color: var(--text-secondary); margin:0 0 12px; max-width: 76ch;}
+  .lede{ font-size: clamp(19px,2.1vw,23px); color: var(--text-primary); max-width:76ch; }
   ul.clean{ margin:0 0 12px; padding-left:1.1em; }
-  ul.clean li{ font-size: clamp(15px,1.5vw,17px); color:var(--text-secondary); margin-bottom:9px; line-height:1.55;}
+  ul.clean li{ font-size: clamp(16px,1.6vw,18.5px); color:var(--text-secondary); margin-bottom:8px; line-height:1.5;}
   strong{ color: var(--text-primary); }
-  .muted{ color:var(--muted); font-size:14px; }
+  .muted{ color:var(--muted); font-size:14.5px; }
   a{ color: var(--series-1); }
 
   .grid2{ display:grid; grid-template-columns:1.05fr 1fr; gap:28px; align-items:start; }
@@ -142,18 +142,18 @@
   }
   .chip{
     display:inline-block; background:var(--chip-bg); color:var(--text-secondary);
-    font-size:13px; padding:4px 11px; border-radius:999px; margin:0 6px 6px 0;
+    font-size:14px; padding:5px 12px; border-radius:999px; margin:0 6px 6px 0;
   }
   .badge{
-    display:inline-flex; align-items:center; gap:6px; font-size:13px; font-weight:700;
-    padding:5px 11px; border-radius:8px; background: var(--chip-bg); color:var(--text-primary);
+    display:inline-flex; align-items:center; gap:6px; font-size:14px; font-weight:700;
+    padding:6px 12px; border-radius:8px; background: var(--chip-bg); color:var(--text-primary);
   }
   .badge.good{ background: rgba(12,163,12,.12); color: var(--good); }
   .badge.gap{ background: rgba(227,73,72,.12); color: var(--series-8); }
 
-  table.data{ width:100%; border-collapse:collapse; font-size:12.5px; }
-  table.data th, table.data td{ text-align:left; padding:4px 9px; border-bottom:1px solid var(--gridline); vertical-align:top;}
-  table.data th{ color:var(--muted); font-weight:700; font-size:12.5px; text-transform:uppercase; letter-spacing:.04em;}
+  table.data{ width:100%; border-collapse:collapse; font-size:14.5px; }
+  table.data th, table.data td{ text-align:left; padding:5px 10px; border-bottom:1px solid var(--gridline); vertical-align:top;}
+  table.data th{ color:var(--muted); font-weight:700; font-size:13px; text-transform:uppercase; letter-spacing:.04em;}
   table.data tr:last-child td{ border-bottom:none; }
   table.data td.num{ font-variant-numeric: tabular-nums; white-space:nowrap; }
   .total-row td{ font-weight:700; color:var(--text-primary); border-top:2px solid var(--text-primary); }
@@ -163,26 +163,29 @@
   .process-step{ flex:1 1 200px; padding:16px 16px; border-right:1px solid var(--border); background:var(--card-bg); }
   .process-step:last-child{ border-right:none; }
   .process-step.result{ background: rgba(27,175,122,.09); }
-  .ps-label{ font-size:11.5px; text-transform:uppercase; letter-spacing:.06em; color:var(--muted); font-weight:700; margin-bottom:7px;}
-  .ps-text{ font-size:16.5px; font-weight:700; color:var(--text-primary); line-height:1.35;}
-  .ps-sub{ font-size:12.5px; color:var(--text-secondary); margin-top:4px;}
+  .ps-label{ font-size:12px; text-transform:uppercase; letter-spacing:.06em; color:var(--muted); font-weight:700; margin-bottom:7px;}
+  .ps-text{ font-size:17.5px; font-weight:700; color:var(--text-primary); line-height:1.35;}
+  .ps-sub{ font-size:13.5px; color:var(--text-secondary); margin-top:4px;}
   .stat-hero{ font-size: clamp(30px,4.6vw,44px); font-weight:800; color:var(--series-1); line-height:1.05; }
   .stat-hero.good{ color:var(--good); }
   .chiprow{ margin:10px 0 6px; }
   .story-note{ font-size:14px; color:var(--text-secondary); margin-top:8px; }
 
-  /* ---- image slot: fixed-height box so every photo/diagram renders at a consistent,
-     on-screen size regardless of its own pixel dimensions or aspect ratio ---- */
+  /* ---- image slot: each slot declares its own aspect-ratio (matched to its real
+     photo/diagram) via inline style, so the box is always exactly the image's shape —
+     no cropping, no letterboxing — while a height/max-width cap keeps every slide
+     fitting on one screen without scrolling. Base rule below is the fallback shape
+     for the "image missing" placeholder state only. ---- */
   .img-slot{
     position:relative; border:1px solid var(--border); border-radius:14px;
-    height: clamp(170px, 27vh, 290px); display:flex; align-items:center; justify-content:center;
+    height: clamp(170px, 27vh, 290px); width:100%; display:flex; align-items:center; justify-content:center;
     overflow:hidden; background: var(--card-bg);
   }
-  .img-slot img{ width:100%; height:100%; object-fit:contain; display:block; }
+  .img-slot img{ width:100%; height:100%; object-fit:cover; object-position:center; display:block; }
   .img-fallback{ display:none; padding:18px; text-align:center; }
   .img-fallback .fname{ font-size:12px; font-family: ui-monospace, monospace; color:var(--series-1); background:var(--chip-bg); padding:3px 9px; border-radius:6px; display:inline-block; margin-bottom:8px;}
   .img-fallback .fdesc{ font-size:12.5px; color:var(--muted); max-width:36ch; margin:0 auto; }
-  .img-slot.img-missing{ border:1.5px dashed var(--border); }
+  .img-slot.img-missing{ border:1.5px dashed var(--border); width:100% !important; aspect-ratio:auto !important; height:clamp(100px,15vh,160px) !important; }
   .img-slot.img-missing img{ display:none; }
   .img-slot.img-missing .img-fallback{ display:block; }
   .img-slot.short{ height: clamp(100px, 15vh, 160px); }
@@ -200,11 +203,11 @@
   .tl-sub{ font-size:12.5px; color:var(--muted); }
 
   .email-card{ background: var(--card-bg); border:1px solid var(--border); border-radius:16px; overflow:hidden; }
-  .email-head{ background: linear-gradient(120deg, var(--brand-solid), var(--series-7)); color:#fff; padding:16px 24px; }
+  .email-head{ background: linear-gradient(120deg, var(--brand-solid), var(--series-7)); color:#fff; padding:13px 24px; }
   .email-head .subj-label{ font-size:11.5px; opacity:.85; letter-spacing:.06em; text-transform:uppercase; }
   .email-head .subj{ font-size: clamp(16px,1.9vw,20px); font-weight:700; margin-top:5px; }
-  .email-body{ padding:12px 24px; }
-  .email-body p{ font-size:13.5px; max-width:none; margin-bottom:5px; line-height:1.4;}
+  .email-body{ padding:11px 24px; }
+  .email-body p{ font-size:15px; max-width:none; margin-bottom:6px; line-height:1.44;}
   .email-section-label{ font-size:11.5px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:var(--series-1); margin:8px 0 3px;}
 
   .qa-item{ border-left:3px solid var(--series-8); padding:4px 0 4px 16px; margin-bottom:15px; }
@@ -221,14 +224,14 @@
   .provable-item .ptext{ font-size:13.5px; color:var(--text-secondary); margin-top:5px; line-height:1.5;}
 
   /* ---- data-viz: KPI tiles, bar chart, meter, tooltip ---- */
-  .kpi-row{ display:flex; gap:12px; flex-wrap:wrap; margin:10px 0 4px; }
-  .kpi-tile{ flex:1 1 170px; background:var(--card-bg); border:1px solid var(--border); border-radius:12px; padding:9px 16px; }
-  .kpi-tile .kpi-label{ font-size:12px; color:var(--muted); }
-  .kpi-tile .kpi-value{ font-size:clamp(22px,2.6vw,28px); font-weight:800; color:var(--series-1); line-height:1.15; margin-top:2px; }
-  .kpi-tile .kpi-sub{ font-size:11.5px; color:var(--text-secondary); margin-top:3px; }
+  .kpi-row{ display:flex; gap:12px; flex-wrap:wrap; margin:8px 0 4px; }
+  .kpi-tile{ flex:1 1 170px; background:var(--card-bg); border:1px solid var(--border); border-radius:12px; padding:11px 16px; }
+  .kpi-tile .kpi-label{ font-size:13px; color:var(--muted); }
+  .kpi-tile .kpi-value{ font-size:clamp(23px,2.7vw,29px); font-weight:800; color:var(--series-1); line-height:1.15; margin-top:2px; }
+  .kpi-tile .kpi-sub{ font-size:12.5px; color:var(--text-secondary); margin-top:3px; }
 
   .chart-card{ margin-top:2px; }
-  .barchart{ display:flex; flex-direction:column; gap:7px; margin-top:6px; }
+  .barchart{ display:flex; flex-direction:column; gap:6px; margin-top:5px; }
   .bar-row-label{ font-size:12.5px; color:var(--text-secondary); margin-bottom:4px; }
   .bar-track{ position:relative; height:22px; background:var(--gridline); border-radius:0 4px 4px 0; }
   .bar-seg{ position:absolute; left:0; top:0; height:100%; border-radius:0 4px 4px 0; cursor:pointer; outline:none; transition:filter .15s ease, box-shadow .15s ease; }
@@ -304,7 +307,7 @@
         <div class="kicker" style="justify-content:center;"><span class="dot"></span>Cake · Growth Operations Specialist · Final Presentation</div>
         <h1 style="font-size:clamp(34px,5.8vw,58px);">AI can see the problem.<br>Only a human sees <em>you</em>.</h1>
         <p class="lede" style="margin:0 auto;">A proposal for Cake's Talent Connect and next quantum leap, built the same way I solve every problem: find the root cause, then act.</p>
-        <div class="img-slot short" style="max-width:520px; margin:26px auto 0;">
+        <div class="img-slot short" style="width:auto; height:clamp(120px,17vh,190px); aspect-ratio:1376/768; margin:22px auto 0;">
           <img src="./images:title-hero.jpeg" alt="Title hero visual" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('img-missing');">
           <div class="img-fallback"><span class="fname">images:title-hero.jpeg</span><div class="fdesc">Optional hero visual (abstract, not required)</div></div>
         </div>
@@ -354,7 +357,7 @@
               <span class="badge">Drive Impact → Great Outcomes</span>
             </div>
           </div>
-          <div class="img-slot">
+          <div class="img-slot" style="width:auto; height:clamp(280px,42vh,440px); aspect-ratio:2/3; margin:0 auto;">
             <img src="./images:part1-portrait.png" alt="Self-introduction visual" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('img-missing');">
             <div class="img-fallback"><span class="fname">images:part1-portrait.png</span><div class="fdesc">Self-intro visual: portrait or illustrated background graphic</div></div>
           </div>
@@ -380,7 +383,7 @@
           <span class="chip">Embedded in their stack</span>
         </div>
         <div class="grid2" style="margin-top:6px;">
-          <div class="img-slot">
+          <div class="img-slot" style="height:clamp(180px,27vh,280px); width:auto; aspect-ratio:4/3; margin:0 auto;">
             <img src="./images:part1-thinkbig.png" alt="Channel network diagram" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('img-missing');">
             <div class="img-fallback"><span class="fname">images:part1-thinkbig.png</span><div class="fdesc">Diagram: one-to-one direct sales → partner nodes → many merchants</div></div>
           </div>
@@ -408,7 +411,7 @@
           <span class="chip">Policy: when in doubt, decline</span>
           <span class="chip">UK holding period written into contract</span>
         </div>
-        <div class="img-slot" style="margin-top:6px;">
+        <div class="img-slot" style="height:clamp(190px,29vh,300px); width:auto; aspect-ratio:4/3; margin:6px auto 0;">
           <img src="./images:part1-startsmall.png" alt="Fraud-loss decline timeline" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('img-missing');">
           <div class="img-fallback"><span class="fname">images:part1-startsmall.png</span><div class="fdesc">Timeline: £12,000 declining to under £100 over 5 months, "payback" marker</div></div>
         </div>
@@ -434,7 +437,7 @@
           <span class="chip">12mo term + 30d notice</span>
         </div>
         <div class="grid2" style="margin-top:6px;">
-          <div class="img-slot">
+          <div class="img-slot" style="height:clamp(180px,27vh,280px); width:auto; aspect-ratio:4/3; margin:0 auto;">
             <img src="./images:part1-wintogether.png" alt="Concerns converging to decisions diagram" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('img-missing');">
             <div class="img-fallback"><span class="fname">images:part1-wintogether.png</span><div class="fdesc">Diagram: 9 scattered concerns → 4 grouped decisions → COO</div></div>
           </div>
@@ -459,7 +462,7 @@
           <span class="chip">Co-built with account manager</span>
           <span class="chip">Dual-metric verified</span>
         </div>
-        <div class="img-slot" style="margin-top:6px;">
+        <div class="img-slot" style="height:clamp(190px,29vh,300px); width:auto; aspect-ratio:4/3; margin:6px auto 0;">
           <img src="./images:part1-driveimpact.png" alt="Old vs new process flow" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('img-missing');">
           <div class="img-fallback"><span class="fname">images:part1-driveimpact.png</span><div class="fdesc">Before/after flow: withdraw→wait→pay supplier, vs. auto-transfer→paid</div></div>
         </div>
@@ -675,7 +678,7 @@
             <p><strong>Breakeven:</strong> priced to roughly break even, not to profit. Real return is validation data. Levers if needed: 30→50 paid slots, 3→5 booths, both demand-driven.</p>
             <p><strong>Branding:</strong> Cake community/newsletter under the wide topic + health-check popup + targeted email to low-score users. Secondary: 2–3 partner cross-promotion. Pre-event teaser content. Post-event: data feeds Part 3's validation.</p>
           </div>
-          <div class="img-slot">
+          <div class="img-slot" style="height:clamp(180px,27vh,280px); width:auto; aspect-ratio:1376/768; margin:0 auto;">
             <img src="./images:part2-visual-concept.jpeg" alt="AI vs human split visual" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('img-missing');">
             <div class="img-fallback"><span class="fname">images:part2-visual-concept.jpeg</span><div class="fdesc">Official Part 2.1 visual concept: left = AI screen/score, right = human conversation</div></div>
           </div>
@@ -692,7 +695,7 @@
         <p class="muted">Also the real outreach message for Part 3's two-week validation, written once, used twice.</p>
         <div class="email-card" style="margin-top:10px;">
           <div class="email-head">
-            <div class="img-slot short" style="height:clamp(70px,10vh,105px); border-color:rgba(255,255,255,.5); background:rgba(255,255,255,.08); margin-bottom:8px;">
+            <div class="img-slot short" style="height:clamp(80px,12vh,115px); width:auto; aspect-ratio:1584/672; border-color:rgba(255,255,255,.5); background:rgba(255,255,255,.08); margin:0 auto 6px;">
               <img src="./images:part2-2-cover.jpeg" alt="Email cover image" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('img-missing');">
               <div class="img-fallback"><span class="fname" style="color:#fff; background:rgba(255,255,255,.2);">images:part2-2-cover.jpeg</span><div class="fdesc" style="color:rgba(255,255,255,.8);">Cover image: warm, unposed mentor/coaching conversation</div></div>
             </div>
@@ -707,7 +710,7 @@
             <div class="email-section-label">What's in it for you</div>
             <p>A 10-minute talk, plus a 2-hour on-site 1:1 slot (we cover your rate). 150–200 attendees who already know they need help, not a free-talk crowd that walks out after. This is the start of an ongoing way to reach Cake users, not a one-off ask.</p>
             <p>Hope to hear from you.<br>[Name] · Cake Growth Operations</p>
-            <div class="img-slot short" style="height:clamp(70px,10vh,110px); margin-top:8px;">
+            <div class="img-slot short" style="height:clamp(60px,9vh,95px); width:auto; aspect-ratio:16/9; margin:6px auto 0;">
               <img src="./images:part2-2-inline.png" alt="Event flow inline image" loading="lazy" onerror="this.style.display='none';this.parentElement.classList.add('img-missing');">
               <div class="img-fallback"><span class="fname">images:part2-2-inline.png</span><div class="fdesc">Inline image, 4-step flow: health check → coach match → 1:1 → follow-up</div></div>
             </div>
