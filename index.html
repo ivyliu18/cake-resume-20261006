@@ -177,6 +177,15 @@
   .mini-flow{ display:flex; align-items:center; gap:9px; flex-wrap:wrap; font-size:15px; font-weight:700; color:var(--text-primary); margin-bottom:11px; }
   .mini-flow .mini-arrow{ color:var(--muted); font-weight:400; }
 
+  .compare-split{ display:grid; grid-template-columns:1fr auto 1fr; gap:16px; align-items:stretch; margin-top:16px; }
+  .compare-col{ background:var(--card-bg); border:1px solid var(--border); border-radius:14px; padding:16px 18px; }
+  .compare-col h4{ font-size:12px; text-transform:uppercase; letter-spacing:.06em; color:var(--muted); font-weight:700; margin:0 0 11px; }
+  .compare-col.win{ border-color:var(--brand-fill); background:color-mix(in srgb, var(--brand-fill) 7%, var(--card-bg)); }
+  .compare-col.win h4{ color:var(--brand-solid); }
+  .compare-row{ display:flex; align-items:flex-start; gap:9px; font-size:14.5px; color:var(--text-secondary); padding:5px 0; line-height:1.35; }
+  .compare-row .ci{ font-size:17px; line-height:1.2; flex-shrink:0; }
+  .compare-vs{ align-self:center; font-weight:800; color:var(--muted); font-size:13px; text-transform:uppercase; letter-spacing:.05em; }
+
   .growth-stairs{ display:flex; align-items:flex-end; gap:16px; margin: 32px 0 10px; }
   .stair{ flex:1; text-align:center; }
   .stair-bar{
@@ -686,32 +695,32 @@
           <div class="kpi-row">
             <div class="kpi-tile">
               <div class="kpi-label">Total cost</div>
-              <div class="kpi-value">NT$<span class="cu" data-cu-to="100">100</span>K</div>
-              <div class="kpi-sub">≈95,000–105,000</div>
+              <div class="kpi-value">NT$<span class="cu" data-cu-to="75">75</span>K</div>
+              <div class="kpi-sub">≈75,000</div>
             </div>
             <div class="kpi-tile">
               <div class="kpi-label">Total revenue</div>
-              <div class="kpi-value">NT$<span class="cu" data-cu-to="39">39</span>K</div>
-              <div class="kpi-sub">≈39,000, admission free</div>
+              <div class="kpi-value">NT$<span class="cu" data-cu-to="75">75</span>K</div>
+              <div class="kpi-sub">≈75,000, admission still free</div>
             </div>
           </div>
           <div class="barchart">
             <div class="bar-row">
               <div class="bar-row-label">Cost</div>
               <div class="bar-track">
-                <div class="bar-seg" tabindex="0" style="width:90.9%; background:var(--brand-fill);"
-                  data-title="Total cost ≈ NT$95,000–105,000"
-                  data-items="Venue (half-day, 200 cap)=NT$40,000|Speaker honoraria (4)=NT$20,000|Pilot coach fees (3–5, 2 hrs)=NT$15,000–25,000|Catering=NT$15,000|Print / signage / QR=NT$5,000"></div>
-                <span class="bar-value-label" style="left:90.9%;">≈100K</span>
+                <div class="bar-seg" tabindex="0" style="width:68.18%; background:var(--brand-fill);"
+                  data-title="Total cost ≈ NT$75,000"
+                  data-items="Venue (shared with an event partner, outside the 5 paying booths)=NT$15,000|Speaker honoraria (4)=NT$20,000|Pilot coach fees (4, 2 hrs)=NT$20,000|Catering=NT$15,000|Print / signage / QR=NT$5,000"></div>
+                <span class="bar-value-label" style="left:68.18%;">≈75K</span>
               </div>
             </div>
             <div class="bar-row">
               <div class="bar-row-label">Revenue</div>
               <div class="bar-track">
-                <div class="bar-seg" tabindex="0" style="width:35.45%; background:var(--series-7);"
-                  data-title="Total revenue ≈ NT$39,000"
-                  data-items="General admission=Free|Deep-dive coaching pass (30 slots)=NT$15,000|Partner booth fees (2–3)=NT$24,000"></div>
-                <span class="bar-value-label" style="left:35.45%;">≈39K</span>
+                <div class="bar-seg" tabindex="0" style="width:68.18%; background:var(--series-7);"
+                  data-title="Total revenue ≈ NT$75,000"
+                  data-items="General admission=Free|Deep-dive coaching pass (50 slots)=NT$30,000|Partner booth fees (5)=NT$45,000"></div>
+                <span class="bar-value-label" style="left:68.18%;">≈75K</span>
               </div>
             </div>
             <div class="bar-axis">
@@ -722,29 +731,29 @@
               <span style="left:90.9%;">100K</span>
             </div>
           </div>
-          <p class="muted" style="font-size:11.5px; margin-top:4px;">Hover or tab into a bar for the full line-item breakdown. Same scale, both bars, so the gap between cost and revenue reads honestly.</p>
+          <p class="muted" style="font-size:11.5px; margin-top:4px;">Hover or tab into a bar for the full line-item breakdown. Both bars land on the same mark: this is designed to break even, not to show a gap.</p>
         </div>
 
         <div class="grid2" style="margin-top:6px; gap:20px;">
           <table class="data">
             <tr><th>Cost item</th><th class="num">NT$</th></tr>
-            <tr><td>Venue (half-day, 200 cap)</td><td class="num">40,000</td></tr>
+            <tr><td>Venue (shared with an event partner, half-day, 200 cap)</td><td class="num">15,000</td></tr>
             <tr><td>Speaker honoraria (4)</td><td class="num">20,000</td></tr>
-            <tr><td>Pilot coach fees (3–5, 2 hrs)</td><td class="num">15,000–25,000</td></tr>
+            <tr><td>Pilot coach fees (4, 2 hrs)</td><td class="num">20,000</td></tr>
             <tr><td>Catering</td><td class="num">15,000</td></tr>
             <tr><td>Print / signage / QR</td><td class="num">5,000</td></tr>
-            <tr class="total-row"><td>Total cost</td><td class="num">≈95,000–105,000</td></tr>
+            <tr class="total-row"><td>Total cost</td><td class="num">≈75,000</td></tr>
           </table>
           <table class="data">
             <tr><th>Revenue item</th><th class="num">NT$</th></tr>
             <tr><td>General admission</td><td class="num">Free</td></tr>
-            <tr><td>Deep-dive coaching pass (30 slots)</td><td class="num">500 × 30 = 15,000</td></tr>
-            <tr><td>Partner booth fees (2–3)</td><td class="num">8,000 × 3 = 24,000</td></tr>
-            <tr class="total-row"><td>Total revenue</td><td class="num">≈39,000</td></tr>
+            <tr><td>Deep-dive coaching pass (50 slots)</td><td class="num">600 × 50 = 30,000</td></tr>
+            <tr><td>Partner booth fees (5)</td><td class="num">9,000 × 5 = 45,000</td></tr>
+            <tr class="total-row"><td>Total revenue</td><td class="num">≈75,000</td></tr>
           </table>
         </div>
       </div>
-      <div class="speaker-note">成本營收表格不用逐行唸,面試官自己會看。口頭重點放在「這是精準邀約名單,轉換率應該優於一般公開活動」那句。</div>
+      <div class="speaker-note">成本營收表格不用逐行唸,面試官自己會看。口頭重點放在「這是精準邀約名單,轉換率應該優於一般公開活動」那句。這一版數字已經是打平設計(場地換攤位曝光、名額跟攤位數都調整過),不是先抓一個樂觀數字再回頭找理由,下一頁會講怎麼做到的。</div>
     </section>
 
     <!-- 16 : PART 2.1 breakeven + branding + visual -->
@@ -754,7 +763,7 @@
         <h1>Honest about the money, clear on the brand</h1>
         <div class="grid2">
           <div>
-            <p><strong>Breakeven:</strong> priced to roughly break even, not to profit. Real return is validation data. Levers if needed: 30→50 paid slots, 3→5 booths, both demand-driven.</p>
+            <p><strong>Breakeven:</strong> designed to land at breakeven, not profit. Three concrete moves get there: venue cost traded for an event partner's co-branded space (NT$40K → 15K), paid coaching slots 30 → 50, partner booths 3 → 5. All demand-driven, none assumed.</p>
             <p><strong>Branding:</strong> Cake community/newsletter under the wide topic + health-check popup + targeted email to low-score users. Secondary: 2–3 partner cross-promotion. Pre-event teaser content. Post-event: data feeds Part 3's validation.</p>
           </div>
           <div class="img-slot" style="height:clamp(180px,27vh,280px); width:auto; aspect-ratio:1376/768; margin:0 auto;">
@@ -763,7 +772,7 @@
           </div>
         </div>
       </div>
-      <div class="speaker-note">這頁三段都講重點句就好:誠實打平不硬凹獲利、精準邀約名單、視覺概念一句話帶過。</div>
+      <div class="speaker-note">這頁三段都講重點句就好:打平是刻意設計出來的,不是碰巧、也不是硬凹獲利(場地換曝光、名額跟攤位數調整,三個動作講一句話帶過就好);精準邀約名單;視覺概念一句話帶過。</div>
     </section>
 
     <!-- 17 : PART 2.2 email -->
@@ -829,7 +838,7 @@
           <div class="provable-item"><span class="pnum">3</span><span class="ptitle">How Cake pushes it</span><div class="ptext">Three-phase roadmap: 2-week concierge test → semi-automated + international tiers → full marketplace. Detail next.</div></div>
           <div class="provable-item"><span class="pnum">4</span><span class="ptitle">How it doesn't become the main line</span><div class="ptext">Stays an add-on to the resume platform, not a rebrand. Owned by Growth Ops validation, no new department. Public story stays "job platform."</div></div>
           <div class="provable-item"><span class="pnum">5</span><span class="ptitle">New partner channel</span><div class="ptext">Mandarin-language schools & education providers can take the same shape as Cake's Campus Ambassador programme: a coach-supply channel and an inbound channel to overseas Chinese-speaking job seekers.</div></div>
-          <div class="provable-item"><span class="pnum">6</span><span class="ptitle">Cost & execution</span><div class="ptext">NT$95–105K Phase 1 cost, zero engineering spend, two-week test, detailed on the next few slides.</div></div>
+          <div class="provable-item"><span class="pnum">6</span><span class="ptitle">Cost & execution</span><div class="ptext">NT$75K Phase 1 cost, designed to break even, zero engineering spend, two-week test, detailed on the next few slides.</div></div>
         </div>
       </div>
       <div class="speaker-note">這是新增頁,一定要講到的六點。第4點「怎麼不變成主線」口頭補充:教練媒合定位是履歷平台的加值延伸服務,不是把 Cake 重新定位成教練/家教平台;驗證階段由 Growth Ops 主導,不需要新設部門;對外溝通維持「求職平台」主軸。第5點「中文學校/教育單位」口頭補充:邏輯跟校園大使計畫一樣——這些機構的老師、留學顧問本來就有職涯輔導的量能,可以是教練來源;同時也是觸及東南亞/海外華語使用者的管道,呼應 Part3 第二階段的 inbound 國際線。六點不用每點都展開細講,這頁是「目錄式」陳述,讓面試官知道這個計畫禁得起從國際先例到在地執行的全面檢視,細節在後面幾頁。</div>
@@ -840,10 +849,37 @@
       <div class="slide-inner">
         <div class="kicker"><span class="dot"></span>Part 3 · Not Invented From Scratch</div>
         <h1>AmazingTalker already proved the mechanism</h1>
-        <p>Tutor sets price, student books and pays, platform takes a declining commission (8–38%), scaled from language tutoring into K-12, music, and now career coaching from NT$200/session.</p>
-        <p>Cake doesn't need to invent a new model. It connects a proven one to something AmazingTalker structurally can't offer: <strong>real job listings.</strong> An AmazingTalker user still has to go apply on their own. Cake is already a job platform; coach matching plugs straight into real openings.</p>
+        <p class="lede" style="margin-bottom:4px;">Cake doesn't need to invent a new model, just connect a proven one to something AmazingTalker structurally can't offer.</p>
+
+        <div class="process-strip">
+          <div class="process-step"><div class="ps-icon">💰</div><div class="ps-label">Tutor sets price</div><div class="ps-text" style="font-size:15px;">Self-priced, no platform minimum</div></div>
+          <div class="process-step"><div class="ps-icon">📅</div><div class="ps-label">Books & pays</div><div class="ps-text" style="font-size:15px;">Student books directly on platform</div></div>
+          <div class="process-step"><div class="ps-icon">📉</div><div class="ps-label">Declining commission</div><div class="ps-text" style="font-size:15px;">8–38%, drops as volume grows</div></div>
+          <div class="process-step result"><div class="ps-icon">🚀</div><div class="ps-label">Already scaled</div><div class="ps-text" style="font-size:15px;">Language → K-12, music, career coaching (NT$200+/session)</div></div>
+        </div>
+
+        <div class="card" style="margin-top:12px;">
+          <div class="mini-flow">🧑‍🏫 Proven mechanism <span class="mini-arrow">→</span> ➕ Real job listings <span class="mini-arrow">→</span> 🎯 Complete path to an offer</div>
+          <strong>The gap AmazingTalker can't close:</strong> its users still have to go apply on their own. Cake is already a job platform; coach matching plugs straight into real openings.
+        </div>
+
+        <div class="compare-split">
+          <div class="compare-col">
+            <h4>104</h4>
+            <div class="compare-row"><span class="ci">🙋</span><span>Volunteer "giver" mentors, unpaid</span></div>
+            <div class="compare-row"><span class="ci">🧩</span><span>Side feature, not core product</span></div>
+            <div class="compare-row"><span class="ci">❓</span><span>No quality gate</span></div>
+          </div>
+          <div class="compare-vs">vs</div>
+          <div class="compare-col win">
+            <h4>This model</h4>
+            <div class="compare-row"><span class="ci">💳</span><span>Paid, revenue-share</span></div>
+            <div class="compare-row"><span class="ci">🎯</span><span>Routed from the user's own health-check score</span></div>
+            <div class="compare-row"><span class="ci">🔗</span><span>Tied to real job listings</span></div>
+          </div>
+        </div>
       </div>
-      <div class="speaker-note">這頁重點是「不是發明新模式」這句話,護城河的論點留到 Q&A 那頁展開,這裡先點出結構性差異就好。</div>
+      <div class="speaker-note">這頁重點是「不是發明新模式」這句話,護城河的論點留到 Q&A 那頁展開,這裡先點出結構性差異就好。四步驟視覺是 AmazingTalker 的機制本身,口頭照順序帶過就好,不用逐字唸卡片文字。104 這段口頭補充:如果面試官熟悉104,主動點出差異,不要等被問——104的職涯輔導/giver志工是放在旁邊的加分功能,沒有商業模式也沒有品質把關;這個提案是從付費使用者自己的健檢分數直接路由進一個收費、跟真實職缺綁定的媒合市場。一句話收尾:104是「也有這個功能」,這個提案是「診斷直接變成下一步」。</div>
     </section>
 
     <!-- 21 : PART 3 roadmap -->
@@ -925,12 +961,12 @@ Phase 3(quantum leap 終局):做到 AmazingTalker 等級的自助預約加金流
         </table>
         <h3 style="margin-top:18px;">Resources</h3>
         <div class="chiprow">
-          <span class="chip">Phase 1: 1 person · ≈NT$95–105K · no new hire</span>
+          <span class="chip">Phase 1: 1 person · ≈NT$75K, breakeven · no new hire</span>
           <span class="chip">Phase 2: light product + finance/legal support</span>
           <span class="chip">Phase 3: full build, only after 1–2 validate</span>
         </div>
       </div>
-      <div class="speaker-note">指標表格看過去就好,資源那段念重點:「不用現在就要工程資源」這句話要講清楚,這是回應官方要求「executable」的關鍵句。完整版口頭補充:Phase 1 只需要候選人本人(或同職能 1 人)執行兩週驗證與教練開發,不需要額外招募,預算約 NT$95,000–105,000(可由活動本身部分回收),無額外工程預算。Phase 2 若進入,需要產品/工程資源評估健檢完成頁面的導流彈窗(屬於現有頁面的小改動,不是新建系統),以及財務/法務協助確認教練分潤的請款與課稅處理方式。Phase 3 需要完整的產品與工程投入(自助預約+金流系統),但這筆投入只在第一、二階段驗證通過後才提出。</div>
+      <div class="speaker-note">指標表格看過去就好,資源那段念重點:「不用現在就要工程資源」這句話要講清楚,這是回應官方要求「executable」的關鍵句。完整版口頭補充:Phase 1 只需要候選人本人(或同職能 1 人)執行兩週驗證與教練開發,不需要額外招募,預算約 NT$75,000,設計上是打平(不是部分回收,是整體不虧),無額外工程預算。Phase 2 若進入,需要產品/工程資源評估健檢完成頁面的導流彈窗(屬於現有頁面的小改動,不是新建系統),以及財務/法務協助確認教練分潤的請款與課稅處理方式。Phase 3 需要完整的產品與工程投入(自助預約+金流系統),但這筆投入只在第一、二階段驗證通過後才提出。</div>
     </section>
 
     <!-- 24 : PART 3 risk -->
@@ -943,10 +979,11 @@ Phase 3(quantum leap 終局):做到 AmazingTalker 等級的自助預約加金流
           <li>Explicit opt-in for referrals, never pre-checked.</li>
           <li>Any external conversion claim needs real data behind it, never a story first, numbers later.</li>
           <li>Placement/conversion rate tracked from day one (Launch Academy's 2024 enrolment pause is the cautionary case).</li>
+          <li><strong>Coach vetting, phased by cost:</strong> career coaching isn't a licensed profession in Taiwan, so screening is designed, not assumed. Phase 1: interview, placement track record, and credentials where they exist, weighted toward coaches sourced through already-vetted networks (the same partner channels as the booth partners). Phase 2+: a checklist-gated onboarding, verified credentials required before a coach can accept a referral.</li>
           <li><strong>Stays a side-channel:</strong> an add-on to the resume platform, never the headline. If it ever competes with Cake's core identity for attention, that's a signal to slow down, not scale up.</li>
         </ul>
       </div>
-      <div class="speaker-note">這頁要主動講、不是等對方問。最後一條「怎麼不變成主線」是新增的,呼應前面可驗證性框架的第4點,這裡用治理語言再講一次,強化這不只是口號,是一個有判斷標準的紀律。</div>
+      <div class="speaker-note">這頁要主動講、不是等對方問。最後一條「怎麼不變成主線」呼應前面可驗證性框架的第4點,這裡用治理語言再講一次,強化這不只是口號,是一個有判斷標準的紀律。新增的教練品質把關這條,直接回應第21頁剛點出的104弱點(志工沒有品質把關)——完整版口頭補充見下方。</div>
     </section>
 
     <!-- 26 : REFERENCE CHECK -->
